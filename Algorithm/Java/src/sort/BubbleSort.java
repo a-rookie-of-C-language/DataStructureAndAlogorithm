@@ -1,7 +1,6 @@
 package sort;
 
 import java.util.*;
-import sort.utils;
 
 import static sort.utils.*;
 
@@ -35,7 +34,7 @@ public class BubbleSort {
     }
 
     public static <T> void sort(T[] array, Comparator<T> comparator, IdealArrayIsNull idealArrayIsNull) {
-        sort(array, comparator, idealArrayIsNull, idealArrayIsNull);
+        useComparatorSort(array, comparator,0, array.length,idealArrayIsNull);
     }
 
     public static <T> void sort(T[] array, Comparator<T> comparator, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
@@ -47,7 +46,7 @@ public class BubbleSort {
     }
 
     public static <T> void sort(T[] array, Comparator<T> comparator, int start, int end, IdealArrayIsNull idealArrayIsNull) {
-        sort(array, comparator, start, end, idealArrayIsNull, idealArrayIsNull);
+        useComparatorSort(array, comparator, start, end, idealArrayIsNull, idealArrayIsNull);
     }
 
     public static <T> void sort(T[] array, Comparator<T> comparator, int start, int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
@@ -310,6 +309,7 @@ public class BubbleSort {
     }
 
 
+
     private static void sortAndIdealNullArrays(char[] array, int start, int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
         try {
             Optional<char[]> arrayIsNull = Optional.ofNullable(array);
@@ -331,13 +331,9 @@ public class BubbleSort {
         try {
             Optional<long[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arr -> {
-                for (int i = start; i < end; i++) {
-                    for (int j = start; j < end - i - 1; j++) {
-                        if (arr[j] > arr[j + 1]) {
-                            swap(arr, j, j + 1);
-                        }
-                    }
-                }
+                Long[] temp = Arrays.stream(arr).boxed().toArray(Long[]::new);
+                sortAndIdealNullArrays(temp, start, end, idealArrayIsNull, idealArrayElementIsNull);
+                System.arraycopy(Arrays.stream(temp).mapToLong(Long::valueOf).toArray(), start, arr, start, end);
             }, idealArrayIsNull::toIdealArrayIsNull);
         } catch (NullPointerException npe) {
             idealArrayElementIsNull.toIdealArrayIsNull();
@@ -348,13 +344,9 @@ public class BubbleSort {
         try {
             Optional<double[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arr -> {
-                for (int i = start; i < end; i++) {
-                    for (int j = start; j < end - i - 1; j++) {
-                        if (arr[j] > arr[j + 1]) {
-                            swap(arr, j, j + 1);
-                        }
-                    }
-                }
+                Double[] temp = Arrays.stream(arr).boxed().toArray(Double[]::new);
+                sortAndIdealNullArrays(temp, start, end, idealArrayIsNull, idealArrayElementIsNull);
+                System.arraycopy(Arrays.stream(temp).mapToDouble(Double::valueOf).toArray(), start, arr, start, end);
             }, idealArrayIsNull::toIdealArrayIsNull);
         } catch (NullPointerException npe) {
             idealArrayElementIsNull.toIdealArrayIsNull();
@@ -378,7 +370,8 @@ public class BubbleSort {
         }
     }
 
-    private static void sortAndIdealNullArrays(short[] array, int start, int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
+    private static void sortAndIdealNullArrays(short[] array, int start, int end, IdealArrayIsNull
+            idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
         try {
             Optional<short[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arr -> {
@@ -395,13 +388,28 @@ public class BubbleSort {
         }
     }
 
-    private static void sortAndIdealNullArrays(int[] array, int start, int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
+    private static void sortAndIdealNullArrays(int[] array, int start, int end, IdealArrayIsNull
+            idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
         try {
             Optional<int[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arr -> {
+                Integer[] temp = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+                sortAndIdealNullArrays(temp, start, end, idealArrayIsNull, idealArrayElementIsNull);
+                System.arraycopy(Arrays.stream(temp).mapToInt(Integer::valueOf).toArray(), start, arr, start, end);
+            }, idealArrayIsNull::toIdealArrayIsNull);
+        } catch (NullPointerException npe) {
+            idealArrayElementIsNull.toIdealArrayIsNull();
+        }
+    }
+
+    private static <T extends Comparable<T>> void sortAndIdealNullArrays(T[] array, int start,
+                                                                         int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementIsNull) {
+        try {
+            Optional<T[]> arrayIsNull = Optional.ofNullable(array);
+            arrayIsNull.ifPresentOrElse(arr -> {
                 for (int i = start; i < end; i++) {
                     for (int j = start; j < end - i - 1; j++) {
-                        if (arr[j] > arr[j + 1]) {
+                        if (arr[j].compareTo(arr[j + 1]) > 0) {
                             swap(arr, j, j + 1);
                         }
                     }
@@ -423,7 +431,8 @@ public class BubbleSort {
 
     }
 
-    private static <T extends Comparable<T>> void useComparableSort(T[] array, int start, int end, IdealArrayIsNull idealArrayIsNull) {
+    private static <T extends Comparable<T>> void useComparableSort(T[] array, int start, int end, IdealArrayIsNull
+            idealArrayIsNull) {
         try {
             Optional<T[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arrayIsNull1 -> comparableSort(arrayIsNull1, start, end), idealArrayIsNull::toIdealArrayIsNull);
@@ -432,7 +441,8 @@ public class BubbleSort {
         }
     }
 
-    private static <T extends Comparable<T>> void useComparableSort(T[] array, int start, int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementsIsNull) {
+    private static <T extends Comparable<T>> void useComparableSort(T[] array, int start, int end, IdealArrayIsNull
+            idealArrayIsNull, IdealArrayIsNull idealArrayElementsIsNull) {
         try {
             Optional<T[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arrayIsNull1 -> comparableSort(arrayIsNull1, start, end), idealArrayIsNull::toIdealArrayIsNull);
@@ -450,7 +460,8 @@ public class BubbleSort {
         }
     }
 
-    private static <T> void useComparatorSort(T[] array, Comparator<T> comparator, int start, int end, IdealArrayIsNull idealArrayIsNull) {
+    private static <T> void useComparatorSort(T[] array, Comparator<T> comparator, int start,
+                                              int end, IdealArrayIsNull idealArrayIsNull) {
         try {
             Optional<T[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arrayIsNull1 -> ComparatorSort(arrayIsNull1, comparator, start, end), idealArrayIsNull::toIdealArrayIsNull);
@@ -459,7 +470,8 @@ public class BubbleSort {
         }
     }
 
-    private static <T> void useComparatorSort(T[] array, Comparator<T> comparator, int start, int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementsIsNull) {
+    private static <T> void useComparatorSort(T[] array, Comparator<T> comparator, int start,
+                                              int end, IdealArrayIsNull idealArrayIsNull, IdealArrayIsNull idealArrayElementsIsNull) {
         try {
             Optional<T[]> arrayIsNull = Optional.ofNullable(array);
             arrayIsNull.ifPresentOrElse(arrayIsNull1 -> ComparatorSort(arrayIsNull1, comparator, start, end), idealArrayIsNull::toIdealArrayIsNull);

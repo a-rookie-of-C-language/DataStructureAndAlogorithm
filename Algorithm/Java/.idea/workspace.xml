@@ -13,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,6 +33,7 @@
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "extract.method.default.visibility": "private",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/code/ClionFiles/DataStructureAndAlgorithm/Algorithm/Java",
     "node.js.detected.package.eslint": "true",
@@ -90,22 +92,11 @@
       <updated>1731771085347</updated>
       <workItem from="1731771086395" duration="10026000" />
       <workItem from="1731781230215" duration="1849000" />
-      <workItem from="1731800814016" duration="6470000" />
+      <workItem from="1731800814016" duration="17644000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sort/BubbleSort.java</url>
-          <line>297</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
