@@ -1,16 +1,13 @@
-import sort.BubbleSort;
+import SortAlgorithm.api.Sort;
+import SortAlgorithm.Utils.SortType;
 
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        //int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
-        //arr[2] = null;
-        Integer[] a = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        a[2] = null;
-        //BubbleSort.sort(arr);
-        BubbleSort.sort(a);
+        Integer[] a = new Integer[]{1, 3, 2, 5, 4, 6, 7, 8, 9, 10};
+        Sort sort =new Sort(SortType.Insertion);
+        sort.sort(a);
         System.out.println(Arrays.toString(a));
-        //System.out.println(Arrays.toString(arr));
     }
 }

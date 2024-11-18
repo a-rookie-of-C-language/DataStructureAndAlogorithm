@@ -44,7 +44,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/code/ClionFiles/DataStructureAndAlgorithm",
+    "last_opened_file_path": "E:/code/ClionFiles/DataStructureAndAlgorithm/Algorithm/Java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,7 +84,8 @@
       <updated>1731154840585</updated>
       <workItem from="1731154842353" duration="86000" />
       <workItem from="1731583956661" duration="2696000" />
-      <workItem from="1731783453125" duration="280000" />
+      <workItem from="1731783453125" duration="568000" />
+      <workItem from="1731800792683" duration="1500000" />
     </task>
     <servers />
   </component>

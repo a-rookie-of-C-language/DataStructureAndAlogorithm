@@ -1,7 +1,7 @@
-.idea
-Algorithm/.idea
-Algorithm/out
-DataStructure/.idea
-DataStructure/Stack/.idea
-DataStructure/Stack/cmake-build-debug
-
+.idea/
+Algorithm/.idea/
+Algorithm/out/
+DataStructure/.idea/
+DataStructure/Stack/.idea/
+DataStructure/Stack/cmake-build-debug/
+DataStructure/C++/Stack/CMakeLists.txt
