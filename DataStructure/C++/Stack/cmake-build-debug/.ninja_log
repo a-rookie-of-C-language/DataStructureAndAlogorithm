@@ -1,6 +1,0 @@
-# ninja log v6
-180	1367	7528749947029475	CMakeFiles/Stack.dir/Stack.cpp.obj	f25b96bb0d1be743
-9	649	7529333083479838	CMakeFiles/Stack.dir/main.cpp.obj	b02f49c24e64106a
-650	951	7529333089896955	Stack.exe	d2793cad9bdb6162
-5	660	7529335637680892	CMakeFiles/Stack.dir/main.cpp.obj	b02f49c24e64106a
-85	903	7529335638481641	CMakeFiles/Stack.dir/uion.cpp.obj	959709afb2fe9322
