@@ -1,7 +1,13 @@
 .idea/
 Algorithm/.idea/
+Algorithm/C++/.idea/
+Algorithm/C++/cmake-build-debug/
+Algorithm/C++/CMakeLists.txt
+Algorithm/Java/.idea
 Algorithm/out/
-DataStructure/.idea/
-DataStructure/Stack/.idea/
-DataStructure/Stack/cmake-build-debug/
+Algorithm/Java/.gitignore
+Algorithm/Algorithm.iml
+DataStructure/C++/.idea/
+DataStructure/C++/Stack/.idea
 DataStructure/C++/Stack/CMakeLists.txt
+DataStructure/C++/Stack/cmake-build-debug
